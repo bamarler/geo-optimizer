@@ -26,6 +26,12 @@ def extract_response(page: Page, turn_number: int = 2) -> Dict[str, any]:
     
     # Extract text
     response_text = response_locator.inner_text()
+
+    print(f"\n--- DEBUG ---")
+    print(f"Turn number: {turn_number}")
+    print(f"Response text length: {len(response_text)}")
+    print(f"First 200 chars: {response_text[:200]}")
+    print(f"--- END DEBUG ---\n")
     
     # Extract citations (links in response)
     citations = []
