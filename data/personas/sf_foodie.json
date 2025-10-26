@@ -1,0 +1,10 @@
+{
+  "id": "sf_foodie",
+  "name": "San Francisco Food Blogger",
+  "memory_text": "I'm a food blogger based in San Francisco, living in the Mission District. I frequently review restaurants and love authentic Italian cuisine.",
+  "location": {
+    "latitude": 37.7599,
+    "longitude": -122.4148,
+    "city": "San Francisco"
+  }
+}

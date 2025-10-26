@@ -1,0 +1,28 @@
+{
+  "prompts": [
+    {
+      "id": "italian_nearby",
+      "text": "recommend a good Italian restaurant nearby",
+      "expected_geo": true,
+      "category": "cuisine_specific"
+    },
+    {
+      "id": "date_night",
+      "text": "where should I take someone on a first date for dinner?",
+      "expected_geo": true,
+      "category": "occasion"
+    },
+    {
+      "id": "quick_lunch",
+      "text": "I need a quick lunch spot within walking distance",
+      "expected_geo": true,
+      "category": "convenience"
+    },
+    {
+      "id": "best_pizza_us",
+      "text": "what's the best pizza restaurant in the United States?",
+      "expected_geo": false,
+      "category": "national"
+    }
+  ]
+}

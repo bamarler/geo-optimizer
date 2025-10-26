@@ -1,0 +1,10 @@
+{
+  "id": "sf_tourist",
+  "name": "SF Tourist",
+  "memory_text": "I'm visiting San Francisco for the first time, staying near Fisherman's Wharf. I want to try authentic local restaurants, especially Italian food.",
+  "location": {
+    "latitude": 37.8080,
+    "longitude": -122.4177,
+    "city": "San Francisco"
+  }
+}
