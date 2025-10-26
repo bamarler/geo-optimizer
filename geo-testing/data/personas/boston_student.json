@@ -1,0 +1,11 @@
+{
+  "id": "boston_student",
+  "name": "Boston College Student",
+  "memory_text": "I'm a computer science student at Boston University. I'm learning about databases and web development.",
+  "location": {
+    "latitude": 42.3505,
+    "longitude": -71.1054,
+    "city": "Boston"
+  }
+}
+

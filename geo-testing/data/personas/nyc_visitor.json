@@ -1,0 +1,10 @@
+{
+  "id": "nyc_visitor",
+  "name": "NYC Resident Planning SF Trip",
+  "memory_text": "I live in Manhattan and am planning a trip to San Francisco next month. I love Italian restaurants and want recommendations.",
+  "location": {
+    "latitude": 40.7128,
+    "longitude": -74.0060,
+    "city": "New York"
+  }
+}

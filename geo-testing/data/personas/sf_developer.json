@@ -1,0 +1,11 @@
+{
+  "id": "sf_developer",
+  "name": "San Francisco Software Developer",
+  "memory_text": "I'm a senior software developer working at a tech startup in San Francisco. I specialize in backend systems and databases.",
+  "location": {
+    "latitude": 37.7749,
+    "longitude": -122.4194,
+    "city": "San Francisco"
+  }
+}
+

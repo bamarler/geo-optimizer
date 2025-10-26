@@ -1,0 +1,35 @@
+{
+  "prompts": [
+    {
+      "id": "best_database",
+      "text": "What's the best database for a web application?",
+      "expected_geo": false,
+      "category": "technology"
+    },
+    {
+      "id": "learn_coding",
+      "text": "Where can I learn coding in person?",
+      "expected_geo": true,
+      "category": "education"
+    },
+    {
+      "id": "tech_meetups",
+      "text": "Recommend tech meetups or conferences I should attend",
+      "expected_geo": true,
+      "category": "networking"
+    },
+    {
+      "id": "coworking_space",
+      "text": "I need a good coworking space with fast internet",
+      "expected_geo": true,
+      "category": "workspace"
+    },
+    {
+      "id": "best_framework",
+      "text": "What's the best web development framework to learn in 2024?",
+      "expected_geo": false,
+      "category": "technology"
+    }
+  ]
+}
+

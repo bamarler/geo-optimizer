@@ -1,0 +1,11 @@
+{
+  "id": "nyc_freelancer",
+  "name": "NYC Freelance Developer",
+  "memory_text": "I'm a freelance full-stack developer based in Brooklyn, New York. I work with various clients on web and mobile applications.",
+  "location": {
+    "latitude": 40.6782,
+    "longitude": -73.9442,
+    "city": "New York"
+  }
+}
+
