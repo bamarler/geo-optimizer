@@ -10,7 +10,7 @@ export default function PromptGenerator({ brandDescription, websiteTitle, websit
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:5001/api/generate-prompts', {
+      const response = await fetch('/api/generate-prompts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

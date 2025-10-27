@@ -30,7 +30,7 @@ function App() {
     setStep('scraping');
 
     try {
-      const response = await fetch('http://localhost:5001/api/scrape', {
+      const response = await fetch('/api/scrape', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ function App() {
   const handleApprovePersonas = async () => {
     // Save personas to database
     try {
-      const response = await fetch('http://localhost:5001/api/personas/save', {
+      const response = await fetch('/api/personas/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -122,7 +122,7 @@ function App() {
   const handleApprovePrompts = async () => {
     // Save prompts to database
     try {
-      const saveResponse = await fetch('http://localhost:5001/api/prompts/save', {
+      const saveResponse = await fetch('/api/prompts/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ function App() {
 
         if (startTesting) {
           // Trigger GEO testing
-          const testResponse = await fetch('http://localhost:5001/api/run-geo-test', {
+          const testResponse = await fetch('/api/run-geo-test', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

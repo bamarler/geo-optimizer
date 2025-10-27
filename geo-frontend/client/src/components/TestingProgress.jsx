@@ -27,7 +27,7 @@ export default function TestingProgress({ personaSetId, promptsId, totalTests, o
     // Check for results periodically
     const checkResults = setInterval(async () => {
       try {
-        const response = await fetch(`http://localhost:5001/api/test-results/${personaSetId}`);
+        const response = await fetch(`/api/test-results/${personaSetId}`);
         
         if (response.ok) {
           const data = await response.json();

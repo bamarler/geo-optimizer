@@ -116,8 +116,19 @@ def run_geo_tests_from_db(persona_set_id: str, prompts_id: str):
     print(f"\n🚀 Launching browser...")
     playwright = sync_playwright().start()
 
+    # Auto-detect if we need headless mode (no display server available)
+    # Check if DISPLAY is set (local) or not (EC2/server)
+    import os
+    has_display = os.environ.get('DISPLAY') is not None
+    headless_mode = not has_display
+    
+    if headless_mode:
+        print(f"   Running in HEADLESS mode (no display detected)")
+    else:
+        print(f"   Running in HEADED mode (display available)")
+
     browser = playwright.chromium.launch(
-        headless=False,
+        headless=headless_mode,
         args=['--disable-blink-features=AutomationControlled']
     )
 

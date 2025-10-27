@@ -530,21 +530,28 @@ def run_geo_test():
         if not os.path.exists(python_path):
             return jsonify({'error': f'Python venv not found: {python_path}'}), 500
         
+        # Create log file for this test run
+        log_file = os.path.join(geo_testing_path, f'test_run_{persona_set_id}.log')
+        
         # Run the test in the background with geo-testing venv
-        process = subprocess.Popen(
-            [python_path, script_path, persona_set_id, prompts_id],
-            cwd=geo_testing_path,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
+        # Redirect output to log file so we can monitor it
+        with open(log_file, 'w') as log:
+            process = subprocess.Popen(
+                [python_path, script_path, persona_set_id, prompts_id],
+                cwd=geo_testing_path,
+                stdout=log,
+                stderr=subprocess.STDOUT,  # Combine stderr with stdout
+                text=True,
+                start_new_session=True  # Detach from parent process
+            )
         
         return jsonify({
             'success': True,
             'message': 'GEO testing started successfully',
             'persona_set_id': persona_set_id,
             'prompts_id': prompts_id,
-            'process_id': process.pid
+            'process_id': process.pid,
+            'log_file': log_file
         }), 200
         
     except Exception as e:
@@ -553,6 +560,38 @@ def run_geo_test():
             'error': 'Failed to start GEO testing',
             'message': str(e),
             'traceback': traceback.format_exc()
+        }), 500
+
+@app.route('/api/test-logs/<persona_set_id>', methods=['GET'])
+def get_test_logs(persona_set_id):
+    """
+    Get real-time logs for a running test
+    """
+    try:
+        geo_testing_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'geo-testing'))
+        log_file = os.path.join(geo_testing_path, f'test_run_{persona_set_id}.log')
+        
+        if not os.path.exists(log_file):
+            return jsonify({
+                'success': False,
+                'message': 'Log file not found. Test may not have started yet.'
+            }), 404
+        
+        # Read last 100 lines of log file
+        with open(log_file, 'r') as f:
+            lines = f.readlines()
+            last_lines = lines[-100:] if len(lines) > 100 else lines
+        
+        return jsonify({
+            'success': True,
+            'logs': ''.join(last_lines),
+            'total_lines': len(lines)
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'error': 'Failed to read logs',
+            'message': str(e)
         }), 500
 
 @app.route('/api/test-results/<test_run_id>', methods=['GET'])
